@@ -1,1 +1,41 @@
 
+name: Build Veyronics Preview APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Extract Veyronics source
+        run: |
+          unzip -q "Veyronics-v0.01.1-preview-source.zip" -d extracted
+
+      - name: Build Veyronics APK
+        run: |
+          gradle --no-daemon -p extracted/DeviceGuard-v0.01-GUL assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Veyronics-v0.01.1-preview
+          path: extracted/DeviceGuard-v0.01-GUL/app/build/outputs/apk/debug/app-debug.apk
+
