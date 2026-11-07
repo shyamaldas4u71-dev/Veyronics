@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.deviceguard.app'
+    namespace 'com.veyronics.app'
     compileSdk 35
 
     defaultConfig {
