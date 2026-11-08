@@ -3,7 +3,7 @@ name: Build Veyronics APK
 on:
   push:
     branches:
-      - "v0.02 development"
+      - "v0.02-development"
   workflow_dispatch:
 
 permissions:
