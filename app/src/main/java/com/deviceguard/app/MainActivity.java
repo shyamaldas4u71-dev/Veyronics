@@ -1,5 +1,5 @@
 
-package com.deviceguard.app;
+package com.veyronics.app;
 
 import android.app.Activity;
 import android.os.Bundle;
