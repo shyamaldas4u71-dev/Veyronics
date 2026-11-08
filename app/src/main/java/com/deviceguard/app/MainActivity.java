@@ -1,3 +1,4 @@
+
 package com.deviceguard.app;
 
 import android.app.Activity;
@@ -24,9 +25,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         createDashboard();
     }
+
+    // Veyronics v0.02 development build
 
     private void createDashboard() {
 
@@ -40,14 +42,12 @@ public class MainActivity extends Activity {
         title.setTextSize(27);
         title.setTextColor(accentColor);
         title.setTypeface(null, Typeface.BOLD);
-
         mainLayout.addView(title);
 
         TextView subtitle = new TextView(this);
         subtitle.setText("Device Health & Security");
         subtitle.setTextSize(14);
         subtitle.setTextColor(Color.LTGRAY);
-
         mainLayout.addView(subtitle);
 
         addSpace(30);
@@ -95,4 +95,4 @@ public class MainActivity extends Activity {
         space.setHeight(height);
         mainLayout.addView(space);
     }
-          }
+}
